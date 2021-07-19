@@ -1,15 +1,40 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Widget Engine</title>
-<style>
-body {
-margin: 46px 0 0 0;
-position:relative;
-background:#000000;
-color:#FFFFFF;
-}
-</style>
-</head>
-<body>
-<h1 style="color:#FFFFFF; text-align:center; font-size:26px;padding-top: 20px">Hello World!</h1>
-</body>
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Widget Engine</title>
+    <style>
+        body {
+            margin: 46px 0 0 0;
+            position: relative;
+            background: #ff0000;
+            color: #FFFFFF;
+        }
+    </style>
+
+    <script>
+        function loadApp() {
+            document.getElementById('window-size').innerHTML = "Size: " + window.innerWidth + "x" + window.innerHeight + "px";
+            document.getElementById('user-agent').innerHTML = "User agent" + window.navigator.userAgent;
+            document.getElementById('vin').innerHTML = "VIN: " + top.GetCar().VIN;
+            document.getElementById('distance').innerHTML = "Distance: " + top.GetUnits().Distance;
+            document.getElementById('fuel').innerHTML = "Fuel: " + top.GetUnits().Fuel;
+            document.getElementById('time').innerHTML = "Time: " + top.GetCarTime().Hours + ":" +top.GetCarTime().Minutes;
+        }
+    </script>
+</head>
+
+<body onload="loadApp()">
+    <h1 style="color:#FFFFFF; text-align:center; font-size:26px;padding-top: 20px">Hello World!</h1>
+    <div id="root">
+        <p id="window-size"></p>
+        <p id="user-agent"></p>
+        <p id="vin"></p>
+        <p id="distance"></p>
+        <p id="fuel"></p>
+        <p id="time"></p>
+    </div>
+</body>
 </html>
